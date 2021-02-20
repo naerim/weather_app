@@ -7,11 +7,13 @@ import { LinearGradient } from "expo-linear-gradient";
 const weatherOptions = {
   Haze: {
     iconName: "weather-hail",
-    gradient: ["#4DA0B0", "#D39D38"]
+    gradient: ["#4DA0B0", "#D39D38"],
+    title: "",
+    subtitle: "",
   },
   ThunderStorm: {
     iconName: "weather-lightning",
-    gradient: ["#373B44", "#4286f4"]
+    gradient: ["#373B44", "#4286f4"],
   },
   Drizzle: {
     iconName: "weather-hail",
@@ -32,6 +34,8 @@ const weatherOptions = {
   Clear: {
     iconName: "weather-sunny",
     gradient: ["#FF7300", "#FEF253"],
+    title: "Clear",
+    subtitle: "clear outside~",
   },
   Clouds: {
     iconName: "weather-cloudy",
@@ -63,7 +67,10 @@ export default function Weather({ temp, condition }) {
         />
         <Text style={styles.temp}>{temp}º</Text>
       </View>
-      <View style={styles.halfContainer}></View>
+      <View style={{ ...styles.halfContainer, ...styles.textContainer }}>
+        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+        <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
+      </View>
     </LinearGradient>
   );
 }
@@ -98,5 +105,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    color: "white",
+    fontSize: 44,
+    fontWeight: "300",
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontWeight: "600",
+    color: "white",
+    fontSize: 24,
+  },
+  textContainer: {
+    paddingHorizontal: 20,
+    alignItems: "flex-start",
   },
 });
