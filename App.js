@@ -35,8 +35,6 @@ export default class extends React.Component {
         coords: { latitude, longitude },
       } = await Location.getCurrentPositionAsync();
       this.getWeather(latitude, longitude);
-      this.setState({ isLoading: false });
-      // Send to API and get weather!
     } catch (e) {
       Alert.alert("Can't find you.", "So sad");
     }
@@ -45,6 +43,7 @@ export default class extends React.Component {
   componentDidMount() {
     this.getLocation();
   }
+
   render() {
     const { isLoading, temp, condition } = this.state;
     return isLoading ? (
