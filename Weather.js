@@ -67,7 +67,7 @@ const weatherOptions = {
   },
 };
 
-export default function Weather({ temp, condition }) {
+const Weather = ({ temp, condition }) => {
   return (
     <LinearGradient
       colors={weatherOptions[condition].gradient}
@@ -91,7 +91,35 @@ export default function Weather({ temp, condition }) {
       </View>
     </LinearGradient>
   );
-}
+};
+
+export default Weather;
+
+// export default function Weather({ temp, condition }) {
+//   return (
+//     <LinearGradient
+//       colors={weatherOptions[condition].gradient}
+//       style={styles.container}
+//     >
+//       <StatusBar barStyle=" light-content" />
+//       <Text style={styles.text}>Sign in with Facebook</Text>
+//       <View style={styles.halfContainer}>
+//         <MaterialCommunityIcons
+//           size={96}
+//           name={weatherOptions[condition].iconName}
+//           color="white"
+//         />
+//         <Text style={styles.temp}>{temp}º</Text>
+//       </View>
+//       <View style={styles.textContainer}>
+//         <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+//         <Text style={styles.subtitle}>
+//           {weatherOptions[condition].subtitle}
+//         </Text>
+//       </View>
+//     </LinearGradient>
+//   );
+// }
 
 Weather.propTypes = {
   temp: PropTypes.number.isRequired,

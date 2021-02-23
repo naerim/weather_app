@@ -1,14 +1,25 @@
 import React from "react";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 
-export default function Loading() {
+const Loading = () => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <Text style={styles.text}>Getting the Beautiful weather</Text>
     </View>
   );
-}
+};
+
+// export default function Loading() {
+//   return (
+//     <View style={styles.container}>
+//       <StatusBar barStyle="dark-content" />
+//       <Text style={styles.text}>Getting the Beautiful weather</Text>
+//     </View>
+//   );
+// }
+
+export default Loading;
 
 const styles = StyleSheet.create({
   container: {
